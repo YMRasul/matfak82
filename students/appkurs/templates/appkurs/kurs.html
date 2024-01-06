@@ -1,0 +1,43 @@
+{% extends 'appkurs/base.html' %}
+
+{% block content %}
+  <ul class="list-articles">
+    {% for s in photo %}
+      <li>
+
+        <h3>
+        <div class="article-panel">
+          <p class="first">{{s.grp}}</p>
+        </div>
+
+        <div class="article-panel">
+          {% if s.is_live %}
+            <p class="first">{{s.title}}</p>
+          {% else %}
+            <p class="first" style="border: 5px solid black;">{{s.title}}</p>
+          {% endif %}
+          <p class="last">Дата рождения: {{s.birthday}}</p>
+        </div>
+        </h3>
+
+
+        <!--<p style="border: 5px solid red;">{{s.title}}</p> -->
+
+        {% if s.photo %}
+          <p><img class="img-article-left thumb" src="{{s.photo.url}}"></p>
+        {% endif %}
+
+        {{s.content}}
+
+        <div class="clear"></div>
+
+      </li>
+      <div class="clear"></div>
+	    <p class="link-read-post"><a href="#">Читать пост</a></p>
+      </li>
+
+    {% endfor %}
+  </ul>
+
+{% endblock %}
+
