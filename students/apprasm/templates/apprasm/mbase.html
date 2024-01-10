@@ -26,7 +26,6 @@
                  {% csrf_token %}
 <!-- <li class="last"> {{user.username}} | <button type="submit">Выход</button> </li> -->
                  <li class="last"><a href="{% url 'users:profile' %}">{{user.username}}</a> | <button type="submit">Выход</button> </li>
-
                {% else %}
                  <li class="last"><a href="{% url 'users:login' %}">Вход</a> | <a href="#">Регистрация</a></li>
                {% endif %}
