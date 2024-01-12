@@ -1,6 +1,9 @@
 {% extends 'apprasm/base.html' %}
 
 {% block content %}
+
+<div class="block2">
+<div class="block1">
 <h1>Авторизация</h1>
 <form method="post">
   {% csrf_token%}
@@ -15,4 +18,6 @@
   <p><a href="{% url 'users:password_reset' %}">Забыли пароль ?</a></p>
 
 </form>
+</div>
+</div>
 {% endblock %}

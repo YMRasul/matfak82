@@ -22,8 +22,7 @@
 
 
         <!--<p style="border: 5px solid red;">{{s.title}}</p> -->
-
-        {% if s.photo %}
+       {% if s.photo %}
           <p><img class="img-article-left thumb" src="{{s.photo.url}}"></p>
         {% endif %}
 
@@ -32,8 +31,9 @@
         <div class="clear"></div>
 
       </li>
-      <div class="clear"></div>
-	    <p class="link-read-post"><a href="#">Читать пост</a></p>
+        {% if user.is_superuser %} <!-- Исправить может только superuser -->
+    	    <p class="link-read-post"><a href="{% url 'edit_student' s.id %}">Исправить</a></p>
+        {% endif %}
       </li>
 
     {% endfor %}

@@ -16,24 +16,6 @@ class LoginUser(LoginView):
     # def get_success_url(self):
     #    return reverse_lazy('home')
 
-
-'''
-def login_user(request):
-    if request.method=='POST':
-        form = LoginUserForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(request,username=cd['username'],
-                                        password=cd['password'] )
-            if user and user.is_active:
-                login(request,user)
-                return HttpResponseRedirect(reverse('home'))
-    else:
-        form=LoginUserForm()
-    return render(request,'appusers/login.html',{'form':form})
-'''
-
-
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))  # 127.0.0.1:8000
@@ -61,6 +43,7 @@ def logout_user(request):
 
 # вместо def register(request): пишем класс
 # from django.views.generic import CreateView
+
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
     template_name = 'appusers/register.html'

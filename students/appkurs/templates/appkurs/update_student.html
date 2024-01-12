@@ -2,12 +2,10 @@
 
 {% block content %}
 
-<div class="block2">
-<div class="block1">
+<h1>Редактирование</h1>
 
-
-<h1>Профиль</h1>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
+    <!-- enctype="multipart/form-data" если это забудем загрузка файла не будеть -->
     {% csrf_token %}
     <input type="hidden" name="next" value="{{next}}"/>
     <div class="form-error">{{form.non_field_errors}}</div>
@@ -17,11 +15,4 @@
     {% endfor %}
     <p><button type="submit">Сохранить</button></p>
 </form>
-
-<p><a href="{% url 'users:password_change' %}">Сменить пароль ?</a></p>
-
-</div>
-</div>
-
-
 {% endblock %}

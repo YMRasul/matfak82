@@ -21,7 +21,7 @@
 
            <ul id="mainmenu" class="mainmenu">
              <!-- Домашная страница (главная) -->
-             <li class="logo"><a href="{% url 'home' %}"><div class="logo" title="Домой"></div> </a> </li>
+             <li class="logo"><a href="{% url 'home' %}"><div class="logo" title="Домашная страница"></div> </a> </li>
 
              <form action="{% url 'users:logout' %}" method="post">
                {% for m in mainmenu %}

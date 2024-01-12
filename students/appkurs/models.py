@@ -20,6 +20,13 @@ class Student(models.Model):
         verbose_name_plural = 'Фотографии' # Множественное число
         ordering = ['grp']
 
+    def get_absolute_url(self):
+        return reverse('student', kwargs={'id': self.pk})
+
+    #def get_absolute_url_for_update(self):
+    #    return reverse('student', kwargs={'student_id': self.pk})
+
+
 class Group(models.Model):
     name = models.CharField(max_length=100, db_index=True,verbose_name="Группа")  # ,второй аргумент используется Админ панеле
 
