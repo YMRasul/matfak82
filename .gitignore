@@ -4,6 +4,5 @@ env/
 TMP/
 .env
 .idea/
-settings.py
 djdt.pdf
 students/media/
