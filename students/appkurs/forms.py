@@ -10,5 +10,5 @@ class UpdateStudentForm(forms.ModelForm):
         fields = ['title', 'grp', 'content', 'birthday', 'photo','is_live']
         widgets = {
                     'title': forms.TextInput(attrs={'class': 'form-input'}),
-                    'content': forms.Textarea(attrs={'cols':50,'rows':5})
+                    'content': forms.Textarea(attrs={'cols':70,'rows':10})
                   }
