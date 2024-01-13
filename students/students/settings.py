@@ -4,20 +4,22 @@ import os.path
 from pathlib import Path
 
 import django.core.mail.backends.console
-from dotenv import load_dotenv
-
-BASE_DIR = Path(__file__).resolve().parent.parent
+#from dotenv import load_dotenv
 
 
-load_dotenv()
+#BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-#SECRET_KEY = 'django-insecure-=5k-vx^6zaupifuf#%l=%yf$jy01z+w5es!li+9edt#s(z*(vw'
+#load_dotenv()
+
+#SECRET_KEY = os.getenv('SECRET_KEY')
 print(f'{SECRET_KEY=}')
 
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['matfak82.uz','www.matfak82.uz','95.130.227.79']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -33,11 +35,11 @@ INSTALLED_APPS = [
 ]
 INSTALLED_APPS += [
     'django_extensions',            # Это для работы оболочки  (python manage.py shell_plus --print-sql)
-    'debug_toolbar',                # AAA После   pip install django-debug-toolbar
+#    'debug_toolbar',                # AAA После   pip install django-debug-toolbar
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',          # AAA
+#    'debug_toolbar.middleware.DebugToolbarMiddleware',          # AAA
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',     # для Регистрации и авторизации
     'django.middleware.common.CommonMiddleware',
@@ -46,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-INTERNAL_IPS = ["127.0.0.1",]  # AAA
+#INTERNAL_IPS = ["127.0.0.1",]  # AAA
 
 ROOT_URLCONF = 'students.urls'
 
@@ -147,6 +149,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

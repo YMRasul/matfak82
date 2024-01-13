@@ -11,7 +11,7 @@ urlpatterns = [
     path('', include('appvideo.urls')),  # Создать файл urls.py в папке appvideo
     path('', include('appkurs.urls')),  # Создать файл urls.py в папке appkurs
     path('users/', include('appusers.urls',namespace='users')),  # Создать файл urls.py в папке appusers
-    path("__debug__/", include("debug_toolbar.urls")),    # AAA
+#    path("__debug__/", include("debug_toolbar.urls")),    # AAA
 ]
 
 # Добавление  [***] от students.setttins
