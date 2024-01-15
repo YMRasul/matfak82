@@ -1,19 +1,19 @@
 #import os
 import os.path
-
 from pathlib import Path
-
 import django.core.mail.backends.console
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 
+BASE_DIR = Path(__file__).resolve().parent.parent                        # тестовый
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Боевой
 
-#BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
 
-#load_dotenv()
+print(f"{dotenv_path=}")
 
-#SECRET_KEY = os.getenv('SECRET_KEY')
-print(f'{SECRET_KEY=}')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 #DEBUG = True
 DEBUG = False
